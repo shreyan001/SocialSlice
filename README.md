@@ -1,6 +1,4 @@
 ![ChatGPT Image Apr 23, 2025, 04_25_16 AM (1)](https://github.com/user-attachments/assets/5a9cf163-3af6-49f7-8822-2a0d22adc2a5)
-
-
 # SocialSlice
 
 > Social wagers anytime, anywhere, on anything – verified by AI, powered by blockchain.
