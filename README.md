@@ -1,4 +1,5 @@
- ![ChatGPT Image Apr 23, 2025, 04_25_16 AM](https://github.com/user-attachments/assets/a11bcfb9-d646-4bbe-81a7-0fbc2c4b465f)
+![ChatGPT Image Apr 23, 2025, 04_25_16 AM (1)](https://github.com/user-attachments/assets/5a9cf163-3af6-49f7-8822-2a0d22adc2a5)
+
 
 # SocialSlice
 
