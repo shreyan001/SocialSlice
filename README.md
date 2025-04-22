@@ -17,9 +17,7 @@ SocialSlice is a revolutionary SocialFi platform that enables users to create, p
 - [Technology Stack](#technology-stack)
 - [Roadmap](#roadmap)
 - [Team](#team)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Contact](#contact)
+
 
 ## Project Overview
 
@@ -54,6 +52,9 @@ SocialSlice addresses these challenges through:
 - **Multi-Party Wagering**: Support for two-person bets, group challenges, and tournament-style competitions
 - **Browser Monitoring**: Verify online activities and game outcomes through secure browser monitoring
 - **Flexible Wager Types**: Support for winner-takes-all, proportional distribution, and team-based allocations
+
+  ![mermaid chart-1-2025-04-22-215849](https://github.com/user-attachments/assets/9128f0b5-dad5-4e31-983c-fe23c3fa3cbd)
+
 
 ## Technical Architecture
 
@@ -101,6 +102,11 @@ contract SocialSlicePaymaster is BasePaymaster {
     // Additional functions for managing the paymaster
 }
 ```
+
+
+![mermaid chart-2-2025-04-22-220205](https://github.com/user-attachments/assets/ba0e4f77-5bad-4917-94b0-55ddd17b7dc6)
+
+
 
 ## AI Verification System
 
