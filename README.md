@@ -230,10 +230,10 @@ Dave creates a World Cup prediction pool for 20 friends, each contributing $10. 
 
 ## Detailed Wave-by-Wave Roadmap
 
-Based on the NERO Chain WaveHack schedule[1], here's our detailed development plan for SocialSlice across all building waves:
+Based on the NERO Chain WaveHack schedule, here's our detailed development plan for SocialSlice across all building waves:
 
 ### Wave 2: Building (April 28) - Core Platform Development
-**Goal**: Build, judging criteria achieved[1]
+**Goal**: Build, judging criteria achieved
 
 **Deliverables:**
 - Implement basic AA wallet integration with NERO Chain using UserOp SDK
@@ -244,13 +244,13 @@ Based on the NERO Chain WaveHack schedule[1], here's our detailed development pl
 - Complete initial frontend-backend integration
 
 **Bonus Points:**
-- Roadmap milestones reached with detailed development timeline[1]
-- Share early development progress on X (Twitter)[1]
-- Document evolution process with architectural diagrams[1]
-- Participate in feedback loops with NERO team[1]
+- Roadmap milestones reached with detailed development timeline
+- Share early development progress on X (Twitter)
+- Document evolution process with architectural diagrams
+- Participate in feedback loops with NERO team
 
 ### Wave 3: Building (May 12) - Verification System Enhancement
-**Goal**: Build, judging criteria achieved[1]
+**Goal**: Build, judging criteria achieved
 
 **Deliverables:**
 - Implement AI verification system using LangGraph and Perplexity integration
@@ -261,12 +261,12 @@ Based on the NERO Chain WaveHack schedule[1], here's our detailed development pl
 - Enhance UI/UX based on initial feedback
 
 **Bonus Points:**
-- Continue sharing project evolution on social media[1]
-- Demonstrate working multi-party verification capabilities[1]
-- Actively participate in feedback sessions[1]
+- Continue sharing project evolution on social media
+- Demonstrate working multi-party verification capabilities
+- Actively participate in feedback sessions
 
 ### Wave 4: Building (May 26) - Platform Expansion
-**Goal**: Build, judging criteria achieved[1]
+**Goal**: Build, judging criteria achieved
 
 **Deliverables:**
 - Integrate browser-use agent for automated game outcome verification
@@ -277,12 +277,12 @@ Based on the NERO Chain WaveHack schedule[1], here's our detailed development pl
 - Implement advanced escrow contract with multi-currency support
 
 **Bonus Points:**
-- Share regular progress updates showing platform evolution[1]
-- Document integration points with verification channels[1]
-- Maintain development streak with consistent improvements[1]
+- Share regular progress updates showing platform evolution
+- Document integration points with verification channels
+- Maintain development streak with consistent improvements
 
 ### Wave 5: Building (June 9) - Advanced Features
-**Goal**: Build, judging criteria achieved[1]
+**Goal**: Build, judging criteria achieved
 
 **Deliverables:**
 - Implement Type 2 Paymaster for batch transaction processing
@@ -293,12 +293,12 @@ Based on the NERO Chain WaveHack schedule[1], here's our detailed development pl
 - Polish overall user experience with focus on Web2-like simplicity
 
 **Bonus Points:**
-- Document roadmap progress with completed milestones[1]
-- Demonstrate evolution of the project with metrics[1]
-- Active participation in community feedback loops[1]
+- Document roadmap progress with completed milestones
+- Demonstrate evolution of the project with metrics
+- Active participation in community feedback loops
 
 ### Wave 6: Building (June 23) - Final Polish
-**Goal**: Build, judging criteria achieved[1]
+**Goal**: Build, judging criteria achieved
 
 **Deliverables:**
 - Complete end-to-end testing of all platform components
