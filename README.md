@@ -4,7 +4,8 @@
 
 SocialSlice is a revolutionary SocialFi platform that enables users to create, participate in, and verify social wagers with friends on virtually anything, from gaming outcomes to personal challenges. Leveraging AI verification and NERO Chain's Account Abstraction, SocialSlice provides a seamless, gasless experience that feels like Web2 while delivering the trustless benefits of Web3.
 
-![SocialSlice Logo## 📋 Table of Contents
+![SocialSlice_Logo_256x256](https://github.com/user-attachments/assets/c8803242-3020-4420-bcc8-3a23d2696e50)
+📋 Table of Contents
 
 - [Project Overview](#project-overview)
 - [Problem & Solution](#problem--solution)
