@@ -1,5 +1,4 @@
-![SocialSlice_Logo_50x50](https://github.com/user-attachments/assets/e8e4cdbc-1dd2-4b72-a0b4-5a76351e7a7b)
-# SocialSlice
+![SocialSlice_Logo_50x50](https://github.com/user-attachments/assets/e8e4cdbc-1dd2-4b72-a0b4-5a76351e7a7b) # SocialSlice
 
 > Social wagers anytime, anywhere, on anything – verified by AI, powered by blockchain.
 
