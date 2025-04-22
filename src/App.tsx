@@ -34,7 +34,7 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>NERO Chain dApp with Account Abstraction</h1>
+        <h1>SocialSlice dApp with Account Abstraction</h1>
       </header>
       
       <main className="app-main">
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         {!aaAddress && (
           <section className="info-section">
             <div className="connect-prompt">
-              <h3>Welcome to the Nerochain AA Template</h3>
+              <h3>Welcome to the SocialSlice AA Template</h3>
               <p>Connect your wallet to get started with Account Abstraction.</p>
               <p>This template demonstrates:</p>
               <ul>
@@ -70,7 +70,7 @@ const App: React.FC = () => {
       
       <footer className="app-footer">
         <p>
-          Powered by Nerochain - <a href="https://docs.nerochain.io/" target="_blank" rel="noreferrer">Documentation</a>
+          Powered by SocialSlice - <a href="https://docs.socialslice.io/" target="_blank" rel="noreferrer">Documentation</a>
         </p>
       </footer>
       
