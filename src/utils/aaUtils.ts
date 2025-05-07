@@ -17,32 +17,45 @@ export const getProvider = () => {
 
 /**
  * Get signer from browser wallet (like MetaMask)
- * 
- * @returns Connected wallet signer
  */
 export const getSigner = async () => {
   if (!window.ethereum) {
-    throw new Error("No crypto wallet found. Please install MetaMask.");
+    throw new Error("Please install MetaMask or another Web3 wallet to continue");
   }
   
   try {
-    // Request account access
-    await window.ethereum.request({ method: 'eth_requestAccounts' });
- 
+    // First request accounts
+    await window.ethereum.request({ 
+      method: 'eth_requestAccounts'
+    }).catch((error: any) => {
+      if (error.code === 4001) {
+        throw new Error("Please approve the wallet connection request");
+      }
+      if (error.code === -32002) {
+        throw new Error("Please check your wallet - a connection request is pending");
+      }
+      throw error;
+    });
+
     // Create provider and signer
     const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []); // Ensure connection
     const signer = provider.getSigner();
  
-    // Verify the signer by getting its address
+    // Verify the signer
     const address = await signer.getAddress();
+    if (!address) {
+      throw new Error("No account found. Please connect your wallet.");
+    }
     console.log("Connected wallet address:", address);
  
     return signer;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error connecting to wallet:", error);
-    throw error;
+    throw error.message ? error : new Error("Failed to connect wallet. Please try again.");
   }
 };
+
 // =================================================================
 // Account Abstraction Client
 // =================================================================

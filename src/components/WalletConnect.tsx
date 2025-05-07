@@ -20,7 +20,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
         if (window.ethereum) {
           const accounts = await window.ethereum.request({ method: 'eth_accounts' });
           if (accounts && accounts.length > 0) {
-            await connectWallet();
+            await handleConnectWallet();
           }
         }
       } catch (error) {
@@ -36,7 +36,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
         if (accounts.length === 0) {
           disconnectWallet();
         } else {
-          connectWallet();
+          handleConnectWallet();
         }
       });
     }
@@ -49,7 +49,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
     };
   }, []);
  
-  const connectWallet = async () => {
+  const handleConnectWallet = async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -60,15 +60,16 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
         throw new Error("Failed to get signer from wallet");
       }
       
+      // Get AA wallet address
+      const aaWalletAddress = await getAAWalletAddress(signer);
+      if (!aaWalletAddress) {
+        throw new Error("Failed to get AA wallet address");
+      }
+      
       // Get EOA address
       const address = await signer.getAddress();
       setEoaAddress(address);
-      
-      // Get AA wallet address
-      const aaWalletAddress = await getAAWalletAddress(signer);
       setAaAddress(aaWalletAddress);
-      
-      // Update state
       setIsConnected(true);
       
       // Call callback if provided
@@ -79,6 +80,9 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
     } catch (error: any) {
       console.error("Error connecting wallet:", error);
       setError(error.message || "Failed to connect wallet");
+      setIsConnected(false);
+      setEoaAddress('');
+      setAaAddress('');
     } finally {
       setIsLoading(false);
     }
@@ -93,43 +97,6 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
     setAaAddress('');
   };
 
-  // Check if wallet is already connected on component mount
-  useEffect(() => {
-    const checkWalletConnection = async () => {
-      // Check if ethereum is available and accounts are connected
-      try {
-        if (window.ethereum) {
-          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-          if (accounts && accounts.length > 0) {
-            await connectWallet();
-          }
-        }
-      } catch (error) {
-        console.error("Error checking wallet connection:", error);
-      }
-    };
-    
-    checkWalletConnection();
-    
-    // Listen for account changes
-    if (window.ethereum) {
-      window.ethereum.on('accountsChanged', (accounts: string[]) => {
-        if (accounts.length === 0) {
-          disconnectWallet();
-        } else {
-          connectWallet();
-        }
-      });
-    }
-    
-    return () => {
-      // Clean up event listeners
-      if (window.ethereum) {
-        window.ethereum.removeListener('accountsChanged', () => {});
-      }
-    };
-  }, []);
-
   return (
     <div className="wallet-container">
       <h2>Account Abstraction Wallet</h2>
@@ -143,7 +110,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
       <div className="connect-section">
         {!isConnected ? (
           <button 
-            onClick={connectWallet}
+            onClick={handleConnectWallet}
             disabled={isLoading}
             className="connect-button"
           >
