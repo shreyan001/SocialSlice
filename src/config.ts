@@ -15,7 +15,7 @@ export const AA_PLATFORM_CONFIG = {
   paymasterRpc: process.env.REACT_APP_PAYMASTER_URL || "https://paymaster-testnet.nerochain.io",
 };
 
-// Contract addresses - replace with your own as needed
+// Contract addresses
 export const CONTRACT_ADDRESSES = {
   // ERC-4337 EntryPoint contract address
   entryPoint: "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789",
@@ -26,8 +26,8 @@ export const CONTRACT_ADDRESSES = {
   // Token Paymaster address
   tokenPaymaster: "0x5a6680dFd4a77FEea0A7be291147768EaA2414ad",
   
-  // Example NFT contract address - replace with your own
-  nftContract: process.env.REACT_APP_NFT_CONTRACT || "0x63f1f7c6a24294a874d7c8ea289e4624f84b48cb",
+  // Escrow Platform contract
+  escrowPlatform: "0x23d5b252470e47665e87ef2a8e2e44349e67e868",
 };
 
 // API key management for Paymaster

@@ -1,32 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { getSigner, getAAWalletAddress } from '../utils/aaUtils';
-
+import { ethers } from 'ethers';
+ 
 interface WalletConnectProps {
   onWalletConnected?: (eoaAddress: string, aaAddress: string) => void;
 }
-
-/**
- * Component to connect to user's wallet and display addresses
- */
+ 
 const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [eoaAddress, setEoaAddress] = useState('');
   const [aaAddress, setAaAddress] = useState('');
   const [error, setError] = useState<string | null>(null);
-
-  /**
-   * Connect to wallet and get addresses
-   * TODO: Implement this function to connect to the wallet and get addresses
-   */
+  
+  // Check if wallet is already connected on component mount
+  useEffect(() => {
+    const checkWalletConnection = async () => {
+      try {
+        if (window.ethereum) {
+          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+          if (accounts && accounts.length > 0) {
+            await connectWallet();
+          }
+        }
+      } catch (error) {
+        console.error("Error checking wallet connection:", error);
+      }
+    };
+    
+    checkWalletConnection();
+    
+    // Listen for account changes
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', (accounts: string[]) => {
+        if (accounts.length === 0) {
+          disconnectWallet();
+        } else {
+          connectWallet();
+        }
+      });
+    }
+    
+    return () => {
+      // Clean up event listeners
+      if (window.ethereum) {
+        window.ethereum.removeListener('accountsChanged', () => {});
+      }
+    };
+  }, []);
+ 
   const connectWallet = async () => {
     try {
       setIsLoading(true);
       setError(null);
       
-      // This is a placeholder implementation
-      // Replace with your implementation based on the tutorial
+      // Get signer from wallet
       const signer = await getSigner();
+      if (!signer) {
+        throw new Error("Failed to get signer from wallet");
+      }
       
       // Get EOA address
       const address = await signer.getAddress();

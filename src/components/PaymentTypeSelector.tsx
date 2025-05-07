@@ -40,16 +40,27 @@ const PaymentTypeSelector: React.FC<PaymentTypeSelectorProps> = ({
    */
   const getFilteredTokens = () => {
     if (paymentType === 0) return [];
-
-    // This is a placeholder implementation
-    // Replace with your implementation based on the tutorial
-    return supportedTokens.filter(token =>
-      // For prepay (1), include type 1 tokens
-      // For postpay (2), include type 2 tokens
-      token.type === paymentType
-    );
+   
+    console.log("Payment type:", paymentType);
+    console.log("All supported tokens:", supportedTokens);
+    
+    // For each token, check if it matches the payment type
+    // If we can't determine the type, default to returning all tokens
+    const filtered = supportedTokens.filter(token => {
+      // If no tokens have the right type, return all tokens for selected payment type
+      if (token.type === undefined) return true;
+      
+      // Use loose equality (==) instead of strict equality (===) to match numeric types
+      return token.type === paymentType ||
+        // For prepay (1), also include tokens with prepay=true
+        (paymentType === 1 && token.prepay === true) ||
+        // For postpay (2), also include tokens with postpay=true  
+        (paymentType === 2 && token.postpay === true);
+    });
+    
+    console.log("Filtered tokens for payment type", paymentType, ":", filtered);
+    return filtered;
   };
-
   // Handle payment type change
   const handlePaymentTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newType = parseInt(e.target.value);

@@ -3,21 +3,57 @@
     --primary-color: #FF6B6B;
     --secondary-color: #4ECDC4;
     --error-color: #e74c3c;
-    --text-color: #333;
-    --border-color: #ddd;
-    --background-color: #f9f9f9;
-    --card-background: #fff;
+    --text-color: #333333;
+    --border-color: #e1e4e8;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #4CAF50;
 }
 
-body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
+body, .app-container, .socialslice-bg {
+    background: #fff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+}
+
+.socialslice-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.socialslice-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 24px;
+    background: #ef4444;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 24px rgba(239, 68, 68, 0.08);
+}
+
+.socialslice-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+}
+
+.wallet-section {
+    margin-top: 0 !important;
+}
+
+/* Remove old header/footer styles if present */
+.app-header, .app-footer, .info-section, .connect-prompt {
+    display: none !important;
 }
 
 /* App container */
@@ -312,4 +348,650 @@ body {
     .wallet-info .address {
         font-size: 14px;
     }
+}
+
+.wallet-status-bar {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 100;
+}
+
+.wallet-status-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.aa-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.aa-dropdown-toggle {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 2px;
+    transition: background 0.15s;
+    padding: 0;
+}
+
+.aa-dropdown-toggle:hover {
+    background: #f3f4f6;
+}
+
+.dropdown-icon {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.aa-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 10px 16px;
+    min-width: 220px;
+    font-size: 0.95rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.aa-dropdown-label {
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.aa-address {
+    font-family: 'Roboto Mono', 'Menlo', 'Monaco', monospace;
+    font-size: 0.97rem;
+    font-weight: 600;
+    word-break: break-all;
+    color: #222;
+}
+
+.aa-address-box {
+    display: none !important;
+}
+
+.wallet-container {
+    padding: 6px 10px !important;
+    min-width: 0;
+    box-shadow: none;
+    background: transparent;
+    border: none;
+}
+
+.connect-button, .disconnect-button {
+    padding: 6px 14px;
+    font-size: 0.97rem;
+    border-radius: 6px;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .wallet-status-bar {
+        top: 6px;
+        right: 4px;
+    }
+    .aa-dropdown-menu {
+        min-width: 120px;
+        padding: 8px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Navbar styles */
+.navbar {
+    background: var(--card-background);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.navbar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.navbar-wallet {
+    display: flex;
+    align-items: center;
+}
+
+.wallet-badge {
+    background: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+}
+
+.aa-address-button {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Chat interface styles */
+.chat-container {
+    width: 100%;
+    max-width: 1000px;
+    height: calc(100vh - 180px);
+    background: var(--card-background);
+    border-radius: 16px;
+    box-shadow: 
+        8px 8px 16px #e6e9ec,
+        -8px -8px 16px #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 85%;
+}
+
+.message {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    line-height: 1.5;
+    font-size: 1rem;
+    animation: messageIn 0.3s ease-out;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+}
+
+.message.assistant {
+    align-self: flex-start;
+    background: var(--background-color);
+    border-bottom-left-radius: 4px;
+}
+
+.inline-wager-options {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.inline-wager-options .wager-options {
+    box-shadow: none;
+    padding: 1rem;
+    background: transparent;
+}
+
+.inline-wager-options .options-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.inline-wager-options .option-card {
+    padding: 1.5rem;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+}
+
+.chat-input {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--card-background);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: var(--background-color);
+}
+
+.chat-input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+}
+
+.send-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.send-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.send-button:not(:disabled):hover {
+    transform: translateY(-1px);
+}
+
+/* Wager options styles */
+.wager-options {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 16px;
+    box-shadow: 
+        8px 8px 16px #e6e9ec,
+        -8px -8px 16px #ffffff;
+}
+
+.wager-options h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.option-card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 
+        4px 4px 8px #e6e9ec,
+        -4px -4px 8px #ffffff;
+}
+
+.option-card:hover {
+    transform: translateY(-4px);
+}
+
+.option-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.option-card h3 {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.option-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.option-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.option-button:hover {
+    transform: translateY(-1px);
+}
+
+.info-box {
+    text-align: center;
+    padding: 1rem;
+    background: #e8f5e9;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.info-box p {
+    margin: 0;
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+/* Typing indicator */
+.typing {
+    background: var(--background-color) !important;
+    padding: 0.75rem !important;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.25rem;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    opacity: 0.6;
+    animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* Disabled states */
+.chat-input input:disabled {
+    background: var(--background-color);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.send-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #95a5a6;
+    transform: none !important;
+}
+
+/* Message animations */
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.asset-selection h3,
+.confirm-step h3,
+.complete-step h3 {
+    margin-bottom: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.token-list {
+    margin-bottom: 24px;
+}
+
+.token-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.token-symbol {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.token-balance {
+    font-family: 'Roboto Mono', monospace;
+    color: #666;
+}
+
+.no-tokens {
+    text-align: center;
+    padding: 24px;
+    color: #666;
+    font-style: italic;
+}
+
+.loading {
+    text-align: center;
+    padding: 24px;
+    color: #666;
+}
+
+.token-item {
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.token-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.token-item.selected {
+    border-color: #007bff;
+    background: #f0f7ff;
+}
+
+.amount-input {
+    margin-top: 20px;
+}
+
+.amount-input input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.amount-input input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.confirm-button,
+.deposit-button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.confirm-button:disabled,
+.deposit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.gas-note {
+    text-align: center;
+    color: #28a745;
+    margin: 16px 0;
+}
+
+.wager-link {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.wager-link input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.wager-link button {
+    padding: 8px 16px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.error-message {
+    background: #fff3f3;
+    color: #dc3545;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.nft-input {
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.nft-input .form-group {
+    margin-bottom: 16px;
+}
+
+.nft-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.nft-input .input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.nft-input .input-field:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
