@@ -1,7 +1,8 @@
 ![ChatGPT Image Apr 23, 2025, 04_25_16 AM (1)](https://github.com/user-attachments/assets/5a9cf163-3af6-49f7-8822-2a0d22adc2a5)
 # SocialSlice
 
-> Social wagers anytime, anywhere, on anything – verified by AI, powered by blockchain.
+> Social wagers anytime, anywhere, on anything – verified by AI, powered by blockchain. 
+https://social-slice.vercel.app/
 
 SocialSlice is a revolutionary SocialFi platform that enables users to create, participate in, and verify social wagers with friends on virtually anything, from gaming outcomes to personal challenges. Leveraging AI verification and NERO Chain's Account Abstraction, SocialSlice provides a seamless, gasless experience that feels like Web2 while delivering the trustless benefits of Web3.
 
