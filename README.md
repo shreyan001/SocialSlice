@@ -2,8 +2,7 @@
 # SocialSlice
 
 > Social wagers anytime, anywhere, on anything – verified by AI, powered by blockchain. 
-https://social-slice.vercel.app/
-
+Wave 3 site link -
 SocialSlice is a revolutionary SocialFi platform that enables users to create, participate in, and verify social wagers with friends on virtually anything, from gaming outcomes to personal challenges. Leveraging AI verification and NERO Chain's Account Abstraction, SocialSlice provides a seamless, gasless experience that feels like Web2 while delivering the trustless benefits of Web3.
 
 
