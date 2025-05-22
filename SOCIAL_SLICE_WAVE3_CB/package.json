@@ -45,6 +45,7 @@
     "qrcode.react": "^3.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.6.0",
     "swr": "^2.2.5",
     "userop": "https://github.com/nerochain/aa-userop-sdk.git#d33bde2ba69044a367464e8f00fe0c5839e640b3",
     "viem": "2.x",
